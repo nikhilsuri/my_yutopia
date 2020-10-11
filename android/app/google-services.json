@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "5656696157",
+    "firebase_url": "https://myyutopia-b79c7.firebaseio.com",
+    "project_id": "myyutopia-b79c7",
+    "storage_bucket": "myyutopia-b79c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5656696157:android:7dd8e6fe4a25b57a3604b4",
+        "android_client_info": {
+          "package_name": "com.myyutopia.local"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "5656696157-t2hlfu9k1de3i2cai8dot86msuo8psal.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDv4QHmcEVi-l7oWgP4YINQJbyjb0bp7Cg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "5656696157-t2hlfu9k1de3i2cai8dot86msuo8psal.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
