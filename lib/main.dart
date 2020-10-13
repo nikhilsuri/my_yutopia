@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'home_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,8 +29,9 @@ class _MyAppState extends State<MyApp> {
           color: Color.fromRGBO(0, 207, 179, 1),
           child: Center(
             child: loggedIn
-                ? Text("Logged In! :)",
-                style: TextStyle(color: Colors.white, fontSize: 40))
+              ? HomePage()
+//                ? Text("Logged In! :)",
+//                style: TextStyle(color: Colors.white, fontSize: 40))
                 : Stack(
               children: <Widget>[
                 SizedBox.expand(
@@ -183,4 +185,5 @@ class _MyAppState extends State<MyApp> {
     GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
     return googleSignInAccount;
   }
+
 }
