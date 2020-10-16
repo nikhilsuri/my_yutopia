@@ -30,8 +30,6 @@ class _MyAppState extends State<MyApp> {
           child: Center(
             child: loggedIn
               ? HomePage()
-//                ? Text("Logged In! :)",
-//                style: TextStyle(color: Colors.white, fontSize: 40))
                 : Stack(
               children: <Widget>[
                 SizedBox.expand(

@@ -20,6 +20,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_facebook_login: ^1.2.0
+  flutter_rating_bar: ^3.0.1+1
   google_sign_in: ^4.0.1+1
   firebase_auth: ^0.7.0
 
