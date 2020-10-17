@@ -11,17 +11,46 @@ class MyGroupsScreen extends StatefulWidget {
 
 class _MyGroupState extends State<MyGroupsScreen> {
   List<Group> myGroups;
+  Widget appBarTitle = new Text(
+    "Search Sample",
+    style: new TextStyle(color: Colors.white),
+  );
+  Icon actionIcon = new Icon(
+    Icons.search,
+    color: Colors.white,
+  );
+  final key = new GlobalKey<ScaffoldState>();
+  final TextEditingController _searchQuery = new TextEditingController();
+  bool _IsSearching = false;
+  String _searchText = "";
 
   @override
   void initState() {
     super.initState();
+    _IsSearching = false;
     this._loadMyGroups();
+  }
+
+  _MyGroupState() {
+    _searchQuery.addListener(() {
+      if (_searchQuery.text.isEmpty) {
+        setState(() {
+          _IsSearching = false;
+          _searchText = "";
+        });
+      } else {
+        setState(() {
+          _IsSearching = true;
+          _searchText = _searchQuery.text;
+        });
+      }
+    });
   }
 
   buildFeed() {
     if (myGroups != null) {
       return ListView(
-        children: myGroups,
+        children: _IsSearching ? _buildSearchList() : myGroups,
         shrinkWrap: true,
       );
     } else {
@@ -29,6 +58,42 @@ class _MyGroupState extends State<MyGroupsScreen> {
           alignment: FractionalOffset.center,
           child: CircularProgressIndicator());
     }
+  }
+
+  List<Group> _buildSearchList() {
+    if (_searchText.isEmpty) {
+      return myGroups;
+    } else {
+      List<Group> _searchList = List();
+      for (int i = 0; i < myGroups.length; i++) {
+        Group group = myGroups.elementAt(i);
+        if (group.name.toLowerCase().contains(_searchText.toLowerCase())) {
+          _searchList.add(group);
+        }
+      }
+      return _searchList;
+    }
+  }
+
+  void _handleSearchStart() {
+    setState(() {
+      _IsSearching = true;
+    });
+  }
+
+  void _handleSearchEnd() {
+    setState(() {
+      this.actionIcon = new Icon(
+        Icons.search,
+        color: Colors.white,
+      );
+      this.appBarTitle = new Text(
+        "Search Sample",
+        style: new TextStyle(color: Colors.white),
+      );
+      _IsSearching = false;
+      _searchQuery.clear();
+    });
   }
 
   final topBar = new AppBar(
@@ -53,19 +118,42 @@ class _MyGroupState extends State<MyGroupsScreen> {
         body: Container(
           child: Column(
             children: <Widget>[
-              Column(
-                children: <Widget>[Text("I am search space")],
-              ),
+
+              Container(
+                  margin: EdgeInsets.all(5),
+                  decoration: new BoxDecoration(
+                    color: Colors.green,
+                  ),
+                  child: new IconButton(
+                      icon: actionIcon,
+                      onPressed: () {
+                        setState(() {
+                          if (this.actionIcon.icon == Icons.search) {
+                            this.actionIcon = new Icon(
+                              Icons.close,
+                              color: Colors.white,
+                            );
+                            this.appBarTitle = new TextField(
+                              controller: _searchQuery,
+                              style: new TextStyle(
+                                color: Colors.white,
+                              ),
+                              decoration: new InputDecoration(
+                                  prefixIcon: new Icon(Icons.search,
+                                      color: Colors.white),
+                                  hintText: "Search...",
+                                  hintStyle:
+                                      new TextStyle(color: Colors.white)),
+                            );
+                            _handleSearchStart();
+                          } else {
+                            _handleSearchEnd();
+                          }
+                        });
+                      })),
 
 
-
-              RefreshIndicator(
-                onRefresh: _refresh,
-                child:
-                Expanded(
-                  child:buildFeed()
-                ),
-              )
+              Expanded(child: buildFeed()),
             ],
           ),
         ));
@@ -138,7 +226,7 @@ class _MyGroupState extends State<MyGroupsScreen> {
           "description1",
           "SELLER",
           3.4,
-          "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg ",
+          "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg  ",
           "1",
           "1"),
       new Group(
