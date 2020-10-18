@@ -1,3 +1,4 @@
+import 'package:flappy_search_bar/flappy_search_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_yutopia/group.dart';
@@ -32,6 +33,7 @@ class _MyGroupState extends State<MyGroupsScreen> {
   }
 
   _MyGroupState() {
+    //https://stackoverflow.com/questions/49966980/how-to-create-toolbar-searchview-in-flutter
     _searchQuery.addListener(() {
       if (_searchQuery.text.isEmpty) {
         setState(() {
@@ -102,7 +104,7 @@ class _MyGroupState extends State<MyGroupsScreen> {
     elevation: 1.0,
     leading: new Icon(Icons.camera_alt),
     title: SizedBox(
-        height: 35.0, child: Image.asset("assets/images/my_yuopia_logo.jpeg")),
+        height: 35.0, child: Image.asset("/assets/images/my_yuopia_logo.jpeg")),
     actions: <Widget>[
       Padding(
         padding: const EdgeInsets.only(right: 12.0),
@@ -114,49 +116,78 @@ class _MyGroupState extends State<MyGroupsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: topBar,
-        body: Container(
-          child: Column(
-            children: <Widget>[
-
-              Container(
-                  margin: EdgeInsets.all(5),
-                  decoration: new BoxDecoration(
-                    color: Colors.green,
-                  ),
-                  child: new IconButton(
-                      icon: actionIcon,
-                      onPressed: () {
-                        setState(() {
-                          if (this.actionIcon.icon == Icons.search) {
-                            this.actionIcon = new Icon(
-                              Icons.close,
-                              color: Colors.white,
-                            );
-                            this.appBarTitle = new TextField(
-                              controller: _searchQuery,
-                              style: new TextStyle(
-                                color: Colors.white,
+      appBar: topBar,
+      body: Container(
+        child: Column(
+          children: <Widget>[
+            Column(
+              children: <Widget>[
+                Container(
+                  padding: EdgeInsets.only(top: 10.0),
+                  child:  Row(children: <Widget>[
+                    IconButton(
+                      iconSize: 30,
+                      onPressed:,
+                      icon:  _IsSearching ? Icon(Icons.)Icon(Icons.search),
+                    ),
+                    Container(
+                        width: 320,
+                        child:new TextField(
+                            autocorrect: true,
+                            decoration: InputDecoration(
+                              hintText: _IsSearching? _searchQuery : 'Search My Groups',
+                              hintStyle: TextStyle(color: Colors.grey),
+                              filled: true,
+                              fillColor: Colors.white70,
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius:
+                                BorderRadius.all(Radius.circular(8.0)),
+                                borderSide:
+                                BorderSide(color: Colors.grey, width: 1),
                               ),
-                              decoration: new InputDecoration(
-                                  prefixIcon: new Icon(Icons.search,
-                                      color: Colors.white),
-                                  hintText: "Search...",
-                                  hintStyle:
-                                      new TextStyle(color: Colors.white)),
-                            );
-                            _handleSearchStart();
-                          } else {
-                            _handleSearchEnd();
-                          }
-                        });
-                      })),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                              ),
+                            )))
+                  ]),
+                )
 
+              ],
+            ),
 
-              Expanded(child: buildFeed()),
-            ],
-          ),
-        ));
+            Expanded(
+                child: Stack(
+              children: <Widget>[
+                buildFeed(),
+                Positioned(
+                  left: 20,
+                  bottom: 20,
+                  child: FloatingActionButton.extended(
+                    onPressed: () {},
+                    label: Text('ADD'),
+                    icon: Icon(Icons.add),
+                    backgroundColor: Colors.pink,
+                  ),
+                ),
+              ],
+            )),
+
+//              RaisedButton(
+//                color: Colors.blue,
+//              )
+          ],
+        ),
+      ),
+      //      floatingActionButton: FloatingActionButton.extended(
+//
+//        onPressed: () {
+//          // Add your onPressed code here!
+//        },
+//        label: Text('ADD'),
+//        icon: Icon(Icons.add),
+//        backgroundColor: Colors.pink,
+//      ),
+    );
   }
 
   Future<Null> _refresh() async {
@@ -216,7 +247,7 @@ class _MyGroupState extends State<MyGroupsScreen> {
       new Group(
           "Group1",
           "description1",
-          "SELLER",
+          "SELLER1",
           3.4,
           "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
           "1",
@@ -224,15 +255,15 @@ class _MyGroupState extends State<MyGroupsScreen> {
       new Group(
           "Group1",
           "description1",
-          "SELLER",
+          "SELLER2",
           3.4,
-          "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg  ",
+          "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
           "1",
           "1"),
       new Group(
           "Group1",
           "description1",
-          "SELLER",
+          "SELLER3  ",
           3.4,
           "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
           "1",
