@@ -46,11 +46,13 @@ class _Group extends State<Group> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 200,
       margin: EdgeInsets.all(8.0),
       child: Card(
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(8.0))),
         child: InkWell(
+
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
