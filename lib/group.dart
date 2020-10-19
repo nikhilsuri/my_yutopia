@@ -1,10 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:my_yutopia/seller_group.dart';
 
 class Group extends StatefulWidget {
-  Group(this.name, this.description, this.type, this.ranking,
-      this.coverImageUrl, this.groupId, this.ownerId, this.suggestionCard);
+  Group(
+      this.name,
+      this.description,
+      this.type,
+      this.ranking,
+      this.coverImageUrl,
+      this.groupId,
+      this.ownerId,
+      this.suggestionCard,
+      this.meta);
 
   final String name;
   final String description;
@@ -14,6 +23,7 @@ class Group extends StatefulWidget {
   final String groupId;
   final String ownerId;
   final bool suggestionCard;
+  final Map<String, dynamic> meta;
 
   @override
   _Group createState() => _Group(
@@ -24,7 +34,8 @@ class Group extends StatefulWidget {
       this.coverImageUrl,
       this.groupId,
       this.ownerId,
-      this.suggestionCard);
+      this.suggestionCard,
+      this.meta);
 }
 
 class _Group extends State<Group> {
@@ -36,9 +47,18 @@ class _Group extends State<Group> {
   final String groupId;
   final String ownerId;
   final bool suggestionCard;
+  final Map<String, dynamic> meta;
 
-  _Group(this.name, this.description, this.type, this.ranking,
-      this.coverImageUrl, this.groupId, this.ownerId, this.suggestionCard);
+  _Group(
+      this.name,
+      this.description,
+      this.type,
+      this.ranking,
+      this.coverImageUrl,
+      this.groupId,
+      this.ownerId,
+      this.suggestionCard,
+      this.meta);
 
   TextStyle boldStyle = TextStyle(
     color: Colors.black,
@@ -62,6 +82,9 @@ class _Group extends State<Group> {
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(8.0))),
           child: InkWell(
+            onTap: () {
+              GroupRouter(context, groupId);
+            },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
@@ -171,7 +194,6 @@ class _Group extends State<Group> {
                     runSpacing: 4.0, // gap between lines
                     direction: Axis.horizontal,
                     children: <Widget>[
-
                       Chip(
                         backgroundColor: Colors.deepPurple,
                         padding: EdgeInsets.all(0),
@@ -203,5 +225,30 @@ class _Group extends State<Group> {
             ),
           ),
         ));
+  }
+
+  void GroupRouter(BuildContext context, String groupId) {
+    Group group = findGroupById(groupId);
+    String type = group.type;
+    switch (type) {
+      case "SELLER":
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => SellerGroup(group)),
+        );
+    }
+  }
+
+  Group findGroupById(String groupId) {
+    return new Group(
+        "Group1",
+        "description1",
+        "SELLER",
+        3.4,
+        "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
+        "1",
+        "1",
+        false,
+        null);
   }
 }

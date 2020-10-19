@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:my_yutopia/group.dart';
+import 'package:my_yutopia/seller_group.dart';
 
 class MyGroupsScreen extends StatefulWidget {
   @override
@@ -37,10 +38,11 @@ class _MyGroupState extends State<MyGroupsScreen> {
     if (filteredMyGroups != null) {
       return StaggeredGridView.countBuilder(
         crossAxisCount: 4,
-        itemCount: myGroups.length,
+        itemCount: filteredMyGroups.length,
         itemBuilder: (BuildContext context, int index) {
           return filteredMyGroups[index];
         },
+
         staggeredTileBuilder: (int index) =>
         new StaggeredTile.count(2, index.isEven ? 2 : 2),
         mainAxisSpacing: 4.0,
@@ -245,56 +247,7 @@ class _MyGroupState extends State<MyGroupsScreen> {
 //    }
 //    print(result);
 
-    List<Group> groups = [
-      new Group(
-          "Group1",
-          "description1",
-          "SELLER",
-          3.4,
-          "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
-          "1",
-          "1",false),
-      new Group(
-          "Group2",
-          "description2",
-          "SELLER",
-          3.4,
-          "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
-          "1",
-          "1",false),
-      new Group(
-          "Group3",
-          "description3",
-          "SELLER",
-          3.4,
-          "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
-          "1",
-          "1",false),
-      new Group(
-          "Group4",
-          "description4",
-          "SELLER",
-          3.4,
-          "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
-          "1",
-          "1",false),
-      new Group(
-          "Group5",
-          "description5",
-          "SELLER",
-          3.4,
-          "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
-          "1",
-          "1",false),
-      new Group(
-          "Group6",
-          "description6",
-          "SELLER",
-          3.4,
-          "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
-          "1",
-          "1",false)
-    ];
+   List<Group> groups = getUserGroups();
     setState(() {
       myGroups = groups;
       filteredMyGroups = groups ;
@@ -321,4 +274,63 @@ class _MyGroupState extends State<MyGroupsScreen> {
     _searchQuery.dispose();
     super.dispose();
   }
+
+  List<Group> getUserGroups() {
+
+    List<Group> groups = [
+      new Group(
+          "Group1",
+          "description1",
+          "SELLER",
+          3.4,
+          "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
+          "1",
+          "1",false,null),
+      new Group(
+          "Group2",
+          "description2",
+          "SELLER",
+          3.4,
+          "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
+          "1",
+          "1",false,null),
+      new Group(
+          "Group3",
+          "description3",
+          "SELLER",
+          3.4,
+          "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
+          "1",
+          "1",false,null),
+      new Group(
+          "Group4",
+          "description4",
+          "SELLER",
+          3.4,
+          "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
+          "1",
+          "1",false,null),
+      new Group(
+          "Group5",
+          "description5",
+          "SELLER",
+          3.4,
+          "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
+          "1",
+          "1",false,null),
+      new Group(
+          "Group6",
+          "description6",
+          "SELLER",
+          3.4,
+          "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
+          "1",
+          "1",false,null)
+    ];
+    return groups;
+
+  }
+
+
+
 }

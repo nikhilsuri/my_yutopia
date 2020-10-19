@@ -112,6 +112,15 @@ class _ExploreScreenState extends State<ExploreScreen> {
   }
 
   void loadSuggestions() {
+    List<Group> groups = getSuggestionsGroups();
+    groupSuggestions["ForYou"] = groups;
+    groupSuggestions["Universal"] = groups;
+    groupSuggestions["popular"] = groups;
+  }
+
+  List<Group> getSuggestionsGroups() {
+
+
     List<Group> groups = [
       new Group(
           "Group1",
@@ -120,8 +129,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
           3.4,
           "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
           "1",
-          "1",
-          true),
+          "1",false,null),
       new Group(
           "Group2",
           "description2",
@@ -129,8 +137,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
           3.4,
           "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
           "1",
-          "1",
-          true),
+          "1",false,null),
       new Group(
           "Group3",
           "description3",
@@ -138,8 +145,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
           3.4,
           "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
           "1",
-          "1",
-          true),
+          "1",false,null),
       new Group(
           "Group4",
           "description4",
@@ -147,8 +153,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
           3.4,
           "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
           "1",
-          "1",
-          true),
+          "1",false,null),
       new Group(
           "Group5",
           "description5",
@@ -156,8 +161,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
           3.4,
           "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
           "1",
-          "1",
-          true),
+          "1",false,null),
       new Group(
           "Group6",
           "description6",
@@ -165,11 +169,9 @@ class _ExploreScreenState extends State<ExploreScreen> {
           3.4,
           "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
           "1",
-          "1",
-          true)
+          "1",false,null)
     ];
-    groupSuggestions["ForYou"] = groups;
-    groupSuggestions["Universal"] = groups;
-    groupSuggestions["popular"] = groups;
+    return groups;
+
   }
 }
