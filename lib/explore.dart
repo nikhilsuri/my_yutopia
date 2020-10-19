@@ -41,31 +41,37 @@ class _ExploreScreenState extends State<ExploreScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: topBar,
-        body: SingleChildScrollView(
-            child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            suggestionView("ForYou"),
-            suggestionView("popular"),
-            suggestionView("Universal")
-          ],
-        )));
+        body: Container(
+          margin: EdgeInsets.all(12.0),
+          child: SingleChildScrollView(
+              child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              suggestionView("ForYou"),
+              suggestionView("popular"),
+              suggestionView("Universal")
+            ],
+          )),
+        ));
   }
 
   Widget suggestionView(String type) {
-    return Column(
+    return
+
+      Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+
       children: <Widget>[
         Text(
           type,
           textAlign: TextAlign.left,
-          style: TextStyle(color: Colors.red),
+          style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
         ),
-        Divider(
-          color: Colors.grey,
-        ),
+//        Divider(
+//          color: Colors.grey,
+//        ),
         SizedBox(
-          height: 200.0,
+          height: 300.0,
           child: ListView.builder(
             physics: ClampingScrollPhysics(),
             shrinkWrap: true,
@@ -75,9 +81,29 @@ class _ExploreScreenState extends State<ExploreScreen> {
                     ? 0
                     : groupSuggestions[type].length,
             itemBuilder: (context, index) {
-              return Card(
-                child: Center(child: groupSuggestions[type][index]),
-              );
+              return index == groupSuggestions[type].length - 1
+                  ? Container(
+                      child: Center(
+                      child: FlatButton(
+                        child: RotatedBox(
+                          quarterTurns: 1,
+                          child: RichText(
+                            text: TextSpan(
+                              text: 'Load More...',
+                              style: DefaultTextStyle.of(context).style,
+                              children: [
+                                WidgetSpan(
+                                  child: RotatedBox(quarterTurns: -1),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ))
+                  : Container(
+                      child: Center(child: groupSuggestions[type][index]),
+                    );
             },
           ),
         )
@@ -94,7 +120,8 @@ class _ExploreScreenState extends State<ExploreScreen> {
           3.4,
           "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
           "1",
-          "1"),
+          "1",
+          true),
       new Group(
           "Group2",
           "description2",
@@ -102,7 +129,8 @@ class _ExploreScreenState extends State<ExploreScreen> {
           3.4,
           "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
           "1",
-          "1"),
+          "1",
+          true),
       new Group(
           "Group3",
           "description3",
@@ -110,7 +138,8 @@ class _ExploreScreenState extends State<ExploreScreen> {
           3.4,
           "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
           "1",
-          "1"),
+          "1",
+          true),
       new Group(
           "Group4",
           "description4",
@@ -118,7 +147,8 @@ class _ExploreScreenState extends State<ExploreScreen> {
           3.4,
           "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
           "1",
-          "1"),
+          "1",
+          true),
       new Group(
           "Group5",
           "description5",
@@ -126,17 +156,18 @@ class _ExploreScreenState extends State<ExploreScreen> {
           3.4,
           "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
           "1",
-          "1"),
+          "1",
+          true),
       new Group(
-          "Group1",
-          "description1",
+          "Group6",
+          "description6",
           "SELLER",
           3.4,
           "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
           "1",
-          "1")
+          "1",
+          true)
     ];
-
     groupSuggestions["ForYou"] = groups;
     groupSuggestions["Universal"] = groups;
     groupSuggestions["popular"] = groups;

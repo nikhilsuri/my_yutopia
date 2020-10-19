@@ -1,6 +1,6 @@
-import 'package:flappy_search_bar/flappy_search_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:my_yutopia/group.dart';
 
 class MyGroupsScreen extends StatefulWidget {
@@ -12,6 +12,7 @@ class MyGroupsScreen extends StatefulWidget {
 
 class _MyGroupState extends State<MyGroupsScreen> {
   List<Group> myGroups;
+
   List<Group> filteredMyGroups;
   Widget appBarTitle = new Text(
     "Search Sample",
@@ -32,15 +33,18 @@ class _MyGroupState extends State<MyGroupsScreen> {
     this._loadMyGroups();
   }
 
-
   buildFeed() {
-    if (myGroups != null) {
-      return ListView.builder(
-        itemCount: filteredMyGroups.length,
-        itemBuilder: (BuildContext context,   int index){
+    if (filteredMyGroups != null) {
+      return StaggeredGridView.countBuilder(
+        crossAxisCount: 4,
+        itemCount: myGroups.length,
+        itemBuilder: (BuildContext context, int index) {
           return filteredMyGroups[index];
         },
-        shrinkWrap: true,
+        staggeredTileBuilder: (int index) =>
+        new StaggeredTile.count(2, index.isEven ? 2 : 2),
+        mainAxisSpacing: 4.0,
+        crossAxisSpacing: 4.0,
       );
     } else {
       return Container(
@@ -49,14 +53,10 @@ class _MyGroupState extends State<MyGroupsScreen> {
     }
   }
 
-
   void _buildSearchList() {
-    filteredMyGroups.clear();
-    print("TEXT"+_searchText);
-    print(myGroups.length);
-    print(filteredMyGroups.length);
+    //filteredMyGroups.clear();
     if (_searchText.isEmpty) {
-      filteredMyGroups =  myGroups;
+      filteredMyGroups = myGroups;
     } else {
       List<Group> _searchList = List();
       for (int i = 0; i < myGroups.length; i++) {
@@ -65,15 +65,15 @@ class _MyGroupState extends State<MyGroupsScreen> {
           _searchList.add(group);
         }
       }
-      filteredMyGroups =  _searchList;
+      filteredMyGroups = _searchList;
     }
   }
 
   void _handleSearchStart() {
     setState(() {
       _IsSearching = true;
+      _searchText = _searchQuery.text;
       _buildSearchList();
-
     });
   }
 
@@ -88,7 +88,7 @@ class _MyGroupState extends State<MyGroupsScreen> {
       );
       _IsSearching = false;
       _searchText = "";
-     // _searchQuery.clear();
+      _searchQuery.clear();
       _buildSearchList();
     });
   }
@@ -123,7 +123,7 @@ class _MyGroupState extends State<MyGroupsScreen> {
                         width: 320,
                         child: new TextField(
                             autocorrect: true,
-
+                            controller: _searchQuery,
                             decoration: InputDecoration(
                               prefixIcon: IconButton(
                                   iconSize: 30,
@@ -135,7 +135,7 @@ class _MyGroupState extends State<MyGroupsScreen> {
                                           Icons.close,
                                         );
                                         this.appBarTitle = new TextField(
-                                         // controller: _searchQuery,
+                                          // controller: _searchQuery,
                                           style: new TextStyle(
                                             color: Colors.white,
                                           ),
@@ -148,7 +148,6 @@ class _MyGroupState extends State<MyGroupsScreen> {
                                         );
                                         _handleSearchStart();
                                       } else {
-
                                         _handleSearchEnd();
                                       }
                                     });
@@ -174,7 +173,7 @@ class _MyGroupState extends State<MyGroupsScreen> {
               ],
             ),
 
-            Flexible(
+            Expanded(
                 child: Stack(
               children: <Widget>[
                 buildFeed(),
@@ -199,7 +198,6 @@ class _MyGroupState extends State<MyGroupsScreen> {
       ),
     );
   }
-
 
   _loadMyGroups() async {
 //    SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -255,7 +253,7 @@ class _MyGroupState extends State<MyGroupsScreen> {
           3.4,
           "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
           "1",
-          "1"),
+          "1",false),
       new Group(
           "Group2",
           "description2",
@@ -263,7 +261,7 @@ class _MyGroupState extends State<MyGroupsScreen> {
           3.4,
           "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
           "1",
-          "1"),
+          "1",false),
       new Group(
           "Group3",
           "description3",
@@ -271,7 +269,7 @@ class _MyGroupState extends State<MyGroupsScreen> {
           3.4,
           "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
           "1",
-          "1"),
+          "1",false),
       new Group(
           "Group4",
           "description4",
@@ -279,7 +277,7 @@ class _MyGroupState extends State<MyGroupsScreen> {
           3.4,
           "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
           "1",
-          "1"),
+          "1",false),
       new Group(
           "Group5",
           "description5",
@@ -287,20 +285,19 @@ class _MyGroupState extends State<MyGroupsScreen> {
           3.4,
           "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
           "1",
-          "1"),
+          "1",false),
       new Group(
-          "Group1",
-          "description1",
+          "Group6",
+          "description6",
           "SELLER",
           3.4,
           "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
           "1",
-          "1")
+          "1",false)
     ];
     setState(() {
       myGroups = groups;
       filteredMyGroups = groups ;
-      print("Set" + myGroups.length.toString());
     });
   }
 
@@ -317,4 +314,11 @@ class _MyGroupState extends State<MyGroupsScreen> {
   // ensures state is kept when switching pages
   @override
   bool get wantKeepAlive => true;
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    _searchQuery.dispose();
+    super.dispose();
+  }
 }
