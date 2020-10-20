@@ -136,6 +136,7 @@ class _Group extends State<Group> {
   }
 
   Widget buildSuggestionCardLayout() {
+
     return Container(
         width: 250,
         margin: EdgeInsets.all(8.0),
@@ -189,6 +190,7 @@ class _Group extends State<Group> {
                 ),
 
                 Container(
+
                   child: Wrap(
                     spacing: 8.0, // gap between adjacent chips
                     runSpacing: 4.0, // gap between lines
