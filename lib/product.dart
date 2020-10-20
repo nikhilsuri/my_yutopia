@@ -10,12 +10,13 @@ class Product extends StatefulWidget {
   final ranking;
   final List<String> images;
   final String groupId;
+  final amount;
 
   @override
   _Product createState() => _Product(
-      this.name, this.description, this.ranking, this.images, this.groupId);
+      this.name, this.description, this.ranking, this.images, this.groupId,this.amount);
 
-  Product(this.name, this.description, this.ranking, this.images, this.groupId);
+  Product(this.name, this.description, this.ranking, this.images, this.groupId,this.amount);
 }
 
 class _Product extends State<Product> {
@@ -24,9 +25,10 @@ class _Product extends State<Product> {
   final ranking;
   final List<String> images;
   final String groupId;
+  final amount;
 
   _Product(
-      this.name, this.description, this.ranking, this.images, this.groupId);
+      this.name, this.description, this.ranking, this.images, this.groupId,this.amount);
 
   TextStyle boldStyle = TextStyle(
     color: Colors.black,
@@ -74,6 +76,11 @@ class _Product extends State<Product> {
                 itemSize: 20.0,
                 direction: Axis.horizontal,
               ),
+              Row(
+                children: <Widget>[
+                  Text("Rs " + amount.toString())
+                ],
+              )
             ],
           ),
         ));
