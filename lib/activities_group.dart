@@ -7,16 +7,16 @@ import 'package:my_yutopia/group.dart';
 import 'package:my_yutopia/product.dart';
 import 'package:my_yutopia/review.dart';
 
-class SellerGroup extends StatefulWidget {
+class ActivitiesGroup extends StatefulWidget {
   final Group group;
 
-  SellerGroup(this.group);
+  ActivitiesGroup(this.group);
 
   @override
-  _SellerGroup createState() => _SellerGroup(this.group);
+  _ActivitiesGroup createState() => _ActivitiesGroup(this.group);
 }
 
-class _SellerGroup extends State<SellerGroup> {
+class _ActivitiesGroup extends State<ActivitiesGroup> {
   final Group group;
 
   List<Product> products;
@@ -27,7 +27,7 @@ class _SellerGroup extends State<SellerGroup> {
     deserialiseMeta();
   }
 
-  _SellerGroup(this.group);
+  _ActivitiesGroup(this.group);
 
   @override
   Widget build(BuildContext context) {
@@ -142,29 +142,25 @@ class _SellerGroup extends State<SellerGroup> {
               ),
             ),
             Positioned(
-              left: 10,
+              left: 20,
               bottom: 20,
               child: FloatingActionButton.extended(
                 onPressed: () {},
-                elevation: 20,
-                heroTag: "post",
                 label: Text('ADD POST'),
                 icon: Icon(Icons.add),
                 backgroundColor: Colors.pink,
               ),
             ),
-            Positioned(
-              left: 10,
-              bottom: 80,
-              child: FloatingActionButton.extended(
-                onPressed: () {},
-                elevation: 20,
-                heroTag: "review",
-                label: Text('ADD REVIEW'),
-                icon: Icon(Icons.add),
-                backgroundColor: Colors.pink,
-              ),
-            ),
+//            Positioned(
+//              left: 20,
+//              bottom: 40,
+//              child: FloatingActionButton.extended(
+//                onPressed: () {},
+//                label: Text('ADD REVIEW'),
+//                icon: Icon(Icons.add),
+//                backgroundColor: Colors.pink,
+//              ),
+//            ),
           ],
         ));
   }

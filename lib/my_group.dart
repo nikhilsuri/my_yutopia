@@ -42,9 +42,8 @@ class _MyGroupState extends State<MyGroupsScreen> {
         itemBuilder: (BuildContext context, int index) {
           return filteredMyGroups[index];
         },
-
         staggeredTileBuilder: (int index) =>
-        new StaggeredTile.count(2, index.isEven ? 2 : 2),
+            new StaggeredTile.count(2, index.isEven ? 2 : 2),
         mainAxisSpacing: 4.0,
         crossAxisSpacing: 4.0,
       );
@@ -101,7 +100,7 @@ class _MyGroupState extends State<MyGroupsScreen> {
     elevation: 1.0,
     leading: new Icon(Icons.camera_alt),
     title: SizedBox(
-        height: 35.0, child: Image.asset("/assets/images/my_yuopia_logo.jpeg")),
+        height: 35.0, child: Image.asset("assets/images/my_yuopia_logo.jpeg")),
     actions: <Widget>[
       Padding(
         padding: const EdgeInsets.only(right: 12.0),
@@ -176,21 +175,21 @@ class _MyGroupState extends State<MyGroupsScreen> {
             ),
 
             Expanded(
-                child: Stack(
-              children: <Widget>[
-                buildFeed(),
-                Positioned(
-                  left: 20,
-                  bottom: 20,
-                  child: FloatingActionButton.extended(
-                    onPressed: () {},
-                    label: Text('ADD'),
-                    icon: Icon(Icons.add),
-                    backgroundColor: Colors.pink,
-                  ),
-                ),
-              ],
-            )),
+              child: buildFeed(),
+              //children: <Widget>[
+
+//                Positioned(
+//                  left: 10,
+//                  bottom: 20,
+//                  child: FloatingActionButton.extended(
+//                    onPressed: () {},
+//                    label: Text('ADD'),
+//                    icon: Icon(Icons.add),
+//                    backgroundColor: Colors.pink,
+//                  ),
+//                ),
+              //  ],
+            ),
 
 //              RaisedButton(
 //                color: Colors.blue,
@@ -247,10 +246,10 @@ class _MyGroupState extends State<MyGroupsScreen> {
 //    }
 //    print(result);
 
-   List<Group> groups = getUserGroups();
+    List<Group> groups = getUserGroups();
     setState(() {
       myGroups = groups;
-      filteredMyGroups = groups ;
+      filteredMyGroups = groups;
     });
   }
 
@@ -276,7 +275,6 @@ class _MyGroupState extends State<MyGroupsScreen> {
   }
 
   List<Group> getUserGroups() {
-
     List<Group> groups = [
       new Group(
           "Group1",
@@ -285,52 +283,139 @@ class _MyGroupState extends State<MyGroupsScreen> {
           3.4,
           "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
           "1",
-          "1",false,null),
+          "1",
+          false,
+          null),
       new Group(
           "Group2",
           "description2",
-          "SELLER",
-          3.4,
-          "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
+          "ACTIVITIES",
+          4.0,
+          "https://miro.medium.com/max/4800/1*jFyawcsqoYctkTuZg6wQ1A.jpeg",
           "1",
-          "1",false,null),
+          "1",
+          false,
+          null),
       new Group(
-          "Group3",
-          "description3",
+          "Group1",
+          "description1",
           "SELLER",
           3.4,
           "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
           "1",
-          "1",false,null),
+          "1",
+          false,
+          null),
       new Group(
-          "Group4",
-          "description4",
-          "SELLER",
-          3.4,
-          "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
+          "Group2",
+          "description2",
+          "ACTIVITIES",
+          4.0,
+          "https://miro.medium.com/max/4800/1*jFyawcsqoYctkTuZg6wQ1A.jpeg",
           "1",
-          "1",false,null),
+          "1",
+          false,
+          null),
       new Group(
-          "Group5",
-          "description5",
+          "Group1",
+          "description1",
           "SELLER",
           3.4,
           "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
           "1",
-          "1",false,null),
+          "1",
+          false,
+          null),
       new Group(
-          "Group6",
-          "description6",
+          "Group2",
+          "description2",
+          "ACTIVITIES",
+          4.0,
+          "https://miro.medium.com/max/4800/1*jFyawcsqoYctkTuZg6wQ1A.jpeg",
+          "1",
+          "1",
+          false,
+          null),
+      new Group(
+          "Group1",
+          "description1",
           "SELLER",
           3.4,
           "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
           "1",
-          "1",false,null)
+          "1",
+          false,
+          null),
+      new Group(
+          "Group2",
+          "description2",
+          "ACTIVITIES",
+          4.0,
+          "https://miro.medium.com/max/4800/1*jFyawcsqoYctkTuZg6wQ1A.jpeg",
+          "1",
+          "1",
+          false,
+          null),
+      new Group(
+          "Group1",
+          "description1",
+          "SELLER",
+          3.4,
+          "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
+          "1",
+          "1",
+          false,
+          null),
+      new Group(
+          "Group2",
+          "description2",
+          "ACTIVITIES",
+          4.0,
+          "https://miro.medium.com/max/4800/1*jFyawcsqoYctkTuZg6wQ1A.jpeg",
+          "1",
+          "1",
+          false,
+          null),new Group(
+          "Group1",
+          "description1",
+          "SELLER",
+          3.4,
+          "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
+          "1",
+          "1",
+          false,
+          null),
+      new Group(
+          "Group2",
+          "description2",
+          "ACTIVITIES",
+          4.0,
+          "https://miro.medium.com/max/4800/1*jFyawcsqoYctkTuZg6wQ1A.jpeg",
+          "1",
+          "1",
+          false,
+          null),
+      new Group(
+          "Group1",
+          "description1",
+          "SELLER",
+          3.4,
+          "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
+          "1",
+          "1",
+          false,
+          null),
+      new Group(
+          "Group2",
+          "description2",
+          "ACTIVITIES",
+          4.0,
+          "https://miro.medium.com/max/4800/1*jFyawcsqoYctkTuZg6wQ1A.jpeg",
+          "1",
+          "1",
+          false,
+          null),
     ];
     return groups;
-
   }
-
-
-
 }

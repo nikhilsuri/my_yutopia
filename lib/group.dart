@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:my_yutopia/activities_group.dart';
 import 'package:my_yutopia/seller_group.dart';
 
 class Group extends StatefulWidget {
@@ -83,7 +84,7 @@ class _Group extends State<Group> {
               borderRadius: BorderRadius.all(Radius.circular(8.0))),
           child: InkWell(
             onTap: () {
-              GroupRouter(context, groupId);
+              GroupRouter(context, this);
             },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -136,7 +137,6 @@ class _Group extends State<Group> {
   }
 
   Widget buildSuggestionCardLayout() {
-
     return Container(
         width: 250,
         margin: EdgeInsets.all(8.0),
@@ -190,7 +190,6 @@ class _Group extends State<Group> {
                 ),
 
                 Container(
-
                   child: Wrap(
                     spacing: 8.0, // gap between adjacent chips
                     runSpacing: 4.0, // gap between lines
@@ -229,19 +228,28 @@ class _Group extends State<Group> {
         ));
   }
 
-  void GroupRouter(BuildContext context, String groupId) {
+  void GroupRouter(BuildContext context, _Group group) {
     Group group = findGroupById(groupId);
     String type = group.type;
+    print(type);
     switch (type) {
       case "SELLER":
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => SellerGroup(group)),
         );
+        break;
+      case "ACTIVITIES":
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ActivitiesGroup(group)),
+        );
+        break;
     }
   }
 
   Group findGroupById(String groupId) {
+    if( groupId == 1 )
     return new Group(
         "Group1",
         "description1",
