@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:my_yutopia/common_util.dart';
 import 'package:my_yutopia/product.dart';
 
 class ProductView extends StatefulWidget {
@@ -78,16 +79,7 @@ class _ProductView extends State<ProductView> {
       return Container(
           height: 300,
           child: Column(children: <Widget>[
-            RatingBarIndicator(
-              rating: 2.0,
-              itemBuilder: (context, index) => Icon(
-                Icons.star,
-                color: Colors.amber,
-              ),
-              itemCount: 5,
-              itemSize: 20.0,
-              direction: Axis.horizontal,
-            ),
+            StarRatingBar(2.0),
             SizedBox(height: 10),
             Flexible(
               child: ListView.separated(

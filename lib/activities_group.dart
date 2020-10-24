@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_yutopia/cataloguge_screen.dart';
+import 'package:my_yutopia/common_util.dart';
 import 'package:my_yutopia/group.dart';
 import 'package:my_yutopia/product.dart';
 import 'package:my_yutopia/review.dart';
@@ -32,27 +33,7 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: new AppBar(
-          backgroundColor: Colors.red,
-          centerTitle: true,
-          elevation: 1.0,
-          title: Text(
-            group.name,
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-          actions: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(right: 12.0),
-              child: new Tooltip(
-                  message: group.description,
-                  child: IconButton(
-                      icon: Icon(Icons.info),
-                      onPressed: () {
-                        /* your code */
-                      })),
-            )
-          ],
-        ),
+        appBar: GroupAppBar(group),
         body: Stack(
           children: <Widget>[
             SingleChildScrollView(
@@ -76,16 +57,8 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
                       children: <Widget>[
                         Container(
                             child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.end,
                           children: <Widget>[
-                            Tooltip(
-                                message: group.description,
-                                child: FlatButton(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: const Text(
-                                    'About Seller',
-                                  ),
-                                )),
                             FlatButton(
                               onPressed: () {
                                 Navigator.push(

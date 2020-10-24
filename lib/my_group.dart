@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:my_yutopia/activities_group.dart';
 import 'package:my_yutopia/group.dart';
-import 'package:my_yutopia/seller_group.dart';
+import 'common_util.dart';
 
 class MyGroupsScreen extends StatefulWidget {
   @override
@@ -40,7 +41,12 @@ class _MyGroupState extends State<MyGroupsScreen> {
         crossAxisCount: 4,
         itemCount: filteredMyGroups.length,
         itemBuilder: (BuildContext context, int index) {
-          return filteredMyGroups[index];
+          return GestureDetector(
+            onTap: () {
+              GroupRouter(context, filteredMyGroups[index]);
+            },
+            child: filteredMyGroups[index],
+          );
         },
         staggeredTileBuilder: (int index) =>
             new StaggeredTile.count(2, index.isEven ? 2 : 2),
@@ -375,7 +381,8 @@ class _MyGroupState extends State<MyGroupsScreen> {
           "1",
           "1",
           false,
-          null),new Group(
+          null),
+      new Group(
           "Group1",
           "description1",
           "SELLER",

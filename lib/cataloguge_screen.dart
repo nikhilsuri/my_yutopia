@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:my_yutopia/common_util.dart';
 import 'package:my_yutopia/group.dart';
 import 'package:my_yutopia/product.dart';
 import 'package:my_yutopia/product_view.dart';
@@ -71,16 +72,7 @@ class _Catalogue extends State<Cataloguge> {
                         children: <Widget>[
                           Text(products[index].name),
                           //Text(products[index].description),
-                          RatingBarIndicator(
-                            rating: 2.0,
-                            itemBuilder: (context, index) => Icon(
-                              Icons.star,
-                              color: Colors.amber,
-                            ),
-                            itemCount: 5,
-                            itemSize: 20.0,
-                            direction: Axis.horizontal,
-                          ),
+                          StarRatingBar(2.0),
                           Row(
                             children: <Widget>[
                               Text("Rs " + products[index].amount.toString())

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:my_yutopia/common_util.dart';
 import 'package:my_yutopia/review.dart';
 import 'package:my_yutopia/seller_group.dart';
 
@@ -64,16 +65,7 @@ class _Product extends State<Product> {
                 ),
               ),
 
-              RatingBarIndicator(
-                rating: 2.0,
-                itemBuilder: (context, index) => Icon(
-                  Icons.star,
-                  color: Colors.amber,
-                ),
-                itemCount: 5,
-                itemSize: 20.0,
-                direction: Axis.horizontal,
-              ),
+              StarRatingBar(ranking),
               Row(
                 children: <Widget>[
                   Text("Rs " + amount.toString())
