@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:my_yutopia/group.dart';
 import 'package:my_yutopia/product.dart';
+import 'package:my_yutopia/product_view.dart';
 
 class Cataloguge extends StatefulWidget {
   final Group group;
@@ -40,35 +41,56 @@ class _Catalogue extends State<Cataloguge> {
           itemCount: products == null || products.isEmpty ? 0 : products.length,
           itemBuilder: (context, index) {
             return SizedBox(
-              height: 100,
-              child: Row(
-                children: <Widget>[
-
-                  Image.network(products[index].images[0],fit: BoxFit.fill),
-                  Column(
+                height: 100,
+                child: GestureDetector(
+                  onTap: () {
+                    showDialog(
+                        context: context,
+                        builder: (_) => new AlertDialog(
+                            shape: RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10.0))),
+                            content: Builder(
+                              builder: (context) {
+                                // Get available height and width of the build area of this widget. Make a choice depending on the size.
+                                return Container(
+                                //  height: height - 300,
+                                  width: 400,
+                                  child: ProductView(products[index]),
+                                );
+                              },
+                            )));
+//                    Navigator.push(context,
+//                        MaterialPageRoute(builder: (context) => ProductView(products[index])));
+                  },
+                  child: Row(
                     children: <Widget>[
-                      Text(products[index].name),
-                      Text(products[index].description),
-                      RatingBarIndicator(
-                        rating: 2.0,
-                        itemBuilder: (context, index) => Icon(
-                          Icons.star,
-                          color: Colors.amber,
-                        ),
-                        itemCount: 5,
-                        itemSize: 20.0,
-                        direction: Axis.horizontal,
-                      ),
-                      Row(
+                      Image.network(products[index].images[0],
+                          fit: BoxFit.fill),
+                      Column(
                         children: <Widget>[
-                          Text("Rs " + products[index].amount.toString())
+                          Text(products[index].name),
+                          //Text(products[index].description),
+                          RatingBarIndicator(
+                            rating: 2.0,
+                            itemBuilder: (context, index) => Icon(
+                              Icons.star,
+                              color: Colors.amber,
+                            ),
+                            itemCount: 5,
+                            itemSize: 20.0,
+                            direction: Axis.horizontal,
+                          ),
+                          Row(
+                            children: <Widget>[
+                              Text("Rs " + products[index].amount.toString())
+                            ],
+                          )
                         ],
                       )
                     ],
-                  )
-                ],
-              ),
-            );
+                  ),
+                ));
           },
         ));
   }

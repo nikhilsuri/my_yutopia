@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:my_yutopia/cataloguge_screen.dart';
 import 'package:my_yutopia/group.dart';
 import 'package:my_yutopia/product.dart';
+import 'package:my_yutopia/review.dart';
 
 class SellerGroup extends StatefulWidget {
   final Group group;
@@ -156,367 +157,549 @@ class _SellerGroup extends State<SellerGroup> {
   }
 
   List<Product> getDummyProducts() {
+    List<Review> reviews = [
+      new Review("Nikhil", null, "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah "),
+      new Review("Nikhil", null, "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah "),
+      new Review("Nikhil", null, "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah "),
+      new Review("Nikhil", null, "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah "),
+      new Review("Nikhil", null, "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah "),
+      new Review("Nikhil", null, "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah "),
+      new Review("Nikhil", null, "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah "),
+      new Review("Nikhil", null, "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah "),
+      new Review("Nikhil", null, "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah "),
+      new Review("Nikhil", null, "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah "),
+      new Review("Nikhil", null, "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah "),
+      new Review("Nikhil", null, "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah "),
+      new Review("Nikhil", null, "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah "),
+      new Review("Nikhil", null, "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah "),
+      new Review("Nikhil", null, "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah "),
+      new Review("Nikhil", null, "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah "),
+      new Review("Nikhil", null, "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah "),
+      new Review("Nikhil", null, "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah "),
+      new Review("Nikhil", null, "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah "),
+      new Review("Nikhil", null, "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah "),
+      new Review("Nikhil", null, "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah "),
+      new Review("Nikhil", null, "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah "),
+
+    ];
     List<Product> products = [
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+        ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
       new Product(
           "Product1",
-          "Description1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
           [
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999),
+          999,
+          reviews
+      ),
+      new Product(
+          "Product1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
+          2.0,
+          [
+            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
+            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
+          ],
+          "1",
+          999,
+          reviews
+      ),
+      new Product(
+          "Product1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
+          2.0,
+          [
+            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
+            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
+          ],
+          "1",
+          999,
+          reviews
+      ),
+      new Product(
+          "Product1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
+          2.0,
+          [
+            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
+            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
+          ],
+          "1",
+          999,
+          reviews
+      ),
+      new Product(
+          "Product1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
+          2.0,
+          [
+            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
+            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
+          ],
+          "1",
+          999,
+          reviews
+      ),
+      new Product(
+          "Product1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
+          2.0,
+          [
+            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
+            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
+          ],
+          "1",
+          999,
+          reviews
+      ),
+      new Product(
+          "Product1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
+          2.0,
+          [
+            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
+            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
+          ],
+          "1",
+          999,
+          reviews
+      ),
+      new Product(
+          "Product1",
+          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
+          2.0,
+          [
+            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
+            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
+          ],
+          "1",
+          999,
+          reviews
+      ),
+
     ];
     return products;
   }

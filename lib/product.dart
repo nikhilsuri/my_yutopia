@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:my_yutopia/review.dart';
 import 'package:my_yutopia/seller_group.dart';
 
 class Product extends StatefulWidget {
@@ -11,12 +12,13 @@ class Product extends StatefulWidget {
   final List<String> images;
   final String groupId;
   final amount;
+  final List<Review> reviews;
 
   @override
   _Product createState() => _Product(
       this.name, this.description, this.ranking, this.images, this.groupId,this.amount);
 
-  Product(this.name, this.description, this.ranking, this.images, this.groupId,this.amount);
+  Product(this.name, this.description, this.ranking, this.images, this.groupId,this.amount,this.reviews);
 }
 
 class _Product extends State<Product> {
@@ -62,10 +64,6 @@ class _Product extends State<Product> {
                 ),
               ),
 
-              Text(
-                name,
-                style: boldStyle,
-              ),
               RatingBarIndicator(
                 rating: 2.0,
                 itemBuilder: (context, index) => Icon(
