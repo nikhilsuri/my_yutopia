@@ -3,24 +3,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:my_yutopia/common_util.dart';
 import 'package:my_yutopia/group.dart';
+import 'package:my_yutopia/place.dart';
+import 'package:my_yutopia/place_view.dart';
 import 'package:my_yutopia/product.dart';
 import 'package:my_yutopia/product_view.dart';
 
-class Catalogue extends StatefulWidget {
+class AllPlacesPage extends StatefulWidget {
   final Group group;
-  final List<Product> products;
+  final List<Place> places;
 
-  Catalogue(this.group, this.products);
+  AllPlacesPage(this.group, this.places);
 
   @override
-  _Catalogue createState() => _Catalogue(this.group, this.products);
+  _AllPlacesPage createState() => _AllPlacesPage(this.group, this.places);
 }
 
-class _Catalogue extends State<Catalogue> {
+class _AllPlacesPage extends State<AllPlacesPage> {
   final Group group;
-  final List<Product> products;
+  final List<Place> places;
 
-  _Catalogue(this.group, this.products);
+  _AllPlacesPage(this.group, this.places);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,7 @@ class _Catalogue extends State<Catalogue> {
             centerTitle: true,
             elevation: 1.0,
             title: Text(
-              "CATALOGUE",
+              "PLACES",
               style: TextStyle(fontWeight: FontWeight.bold),
             )),
         body: ListView.separated(
@@ -39,7 +41,7 @@ class _Catalogue extends State<Catalogue> {
           ),
           physics: ClampingScrollPhysics(),
           shrinkWrap: true,
-          itemCount: products == null || products.isEmpty ? 0 : products.length,
+          itemCount: places == null || places.isEmpty ? 0 : places.length,
           itemBuilder: (context, index) {
             return SizedBox(
                 height: 100,
@@ -55,10 +57,11 @@ class _Catalogue extends State<Catalogue> {
                               builder: (context) {
                                 // Get available height and width of the build area of this widget. Make a choice depending on the size.
                                 return Container(
-                                //  height: height - 300,
-                                  width: 400,
-                                  child: ProductView(products[index]),
-                                );
+                                    //  height: height - 300,
+                                    width: 400,
+                                    child:
+                                        PlaceView(places[index]),
+                                    );
                               },
                             )));
 //                    Navigator.push(context,
@@ -66,18 +69,12 @@ class _Catalogue extends State<Catalogue> {
                   },
                   child: Row(
                     children: <Widget>[
-                      Image.network(products[index].images[0],
-                          fit: BoxFit.fill),
+                      Image.network(places[index].images[0], fit: BoxFit.fill),
                       Column(
                         children: <Widget>[
-                          Text(products[index].name),
-                          //Text(products[index].description),
+                          Text(places[index].name),
                           StarRatingBar(2.0),
-                          Row(
-                            children: <Widget>[
-                              Text("Rs " + products[index].amount.toString())
-                            ],
-                          )
+                          Text("LOCATION LINK"),
                         ],
                       )
                     ],

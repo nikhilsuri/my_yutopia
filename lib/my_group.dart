@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:my_yutopia/activities_group.dart';
+import 'package:my_yutopia/places_group.dart';
 import 'package:my_yutopia/group.dart';
 import 'common_util.dart';
 
@@ -295,7 +295,7 @@ class _MyGroupState extends State<MyGroupsScreen> {
       new Group(
           "Group2",
           "description2",
-          "ACTIVITIES",
+          "PLACES",
           4.0,
           "https://miro.medium.com/max/4800/1*jFyawcsqoYctkTuZg6wQ1A.jpeg",
           "1",
@@ -315,7 +315,7 @@ class _MyGroupState extends State<MyGroupsScreen> {
       new Group(
           "Group2",
           "description2",
-          "ACTIVITIES",
+          "PLACES",
           4.0,
           "https://miro.medium.com/max/4800/1*jFyawcsqoYctkTuZg6wQ1A.jpeg",
           "1",
@@ -335,7 +335,7 @@ class _MyGroupState extends State<MyGroupsScreen> {
       new Group(
           "Group2",
           "description2",
-          "ACTIVITIES",
+          "PLACES",
           4.0,
           "https://miro.medium.com/max/4800/1*jFyawcsqoYctkTuZg6wQ1A.jpeg",
           "1",
@@ -355,7 +355,7 @@ class _MyGroupState extends State<MyGroupsScreen> {
       new Group(
           "Group2",
           "description2",
-          "ACTIVITIES",
+          "PLACES",
           4.0,
           "https://miro.medium.com/max/4800/1*jFyawcsqoYctkTuZg6wQ1A.jpeg",
           "1",
@@ -375,7 +375,7 @@ class _MyGroupState extends State<MyGroupsScreen> {
       new Group(
           "Group2",
           "description2",
-          "ACTIVITIES",
+          "PLACES",
           4.0,
           "https://miro.medium.com/max/4800/1*jFyawcsqoYctkTuZg6wQ1A.jpeg",
           "1",
@@ -395,7 +395,7 @@ class _MyGroupState extends State<MyGroupsScreen> {
       new Group(
           "Group2",
           "description2",
-          "ACTIVITIES",
+          "PLACES",
           4.0,
           "https://miro.medium.com/max/4800/1*jFyawcsqoYctkTuZg6wQ1A.jpeg",
           "1",
@@ -415,7 +415,7 @@ class _MyGroupState extends State<MyGroupsScreen> {
       new Group(
           "Group2",
           "description2",
-          "ACTIVITIES",
+          "PLACES",
           4.0,
           "https://miro.medium.com/max/4800/1*jFyawcsqoYctkTuZg6wQ1A.jpeg",
           "1",
@@ -425,4 +425,149 @@ class _MyGroupState extends State<MyGroupsScreen> {
     ];
     return groups;
   }
+}
+List<Group> getUserGroups() {
+  List<Group> groups = [
+    new Group(
+        "Group1",
+        "description1",
+        "SELLER",
+        3.4,
+        "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
+        "1",
+        "1",
+        false,
+        null),
+    new Group(
+        "Group2",
+        "description2",
+        "PLACES",
+        4.0,
+        "https://miro.medium.com/max/4800/1*jFyawcsqoYctkTuZg6wQ1A.jpeg",
+        "1",
+        "1",
+        false,
+        null),
+    new Group(
+        "Group1",
+        "description1",
+        "SELLER",
+        3.4,
+        "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
+        "1",
+        "1",
+        false,
+        null),
+    new Group(
+        "Group2",
+        "description2",
+        "PLACES",
+        4.0,
+        "https://miro.medium.com/max/4800/1*jFyawcsqoYctkTuZg6wQ1A.jpeg",
+        "1",
+        "1",
+        false,
+        null),
+    new Group(
+        "Group1",
+        "description1",
+        "SELLER",
+        3.4,
+        "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
+        "1",
+        "1",
+        false,
+        null),
+    new Group(
+        "Group2",
+        "description2",
+        "PLACES",
+        4.0,
+        "https://miro.medium.com/max/4800/1*jFyawcsqoYctkTuZg6wQ1A.jpeg",
+        "1",
+        "1",
+        false,
+        null),
+    new Group(
+        "Group1",
+        "description1",
+        "SELLER",
+        3.4,
+        "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
+        "1",
+        "1",
+        false,
+        null),
+    new Group(
+        "Group2",
+        "description2",
+        "PLACES",
+        4.0,
+        "https://miro.medium.com/max/4800/1*jFyawcsqoYctkTuZg6wQ1A.jpeg",
+        "1",
+        "1",
+        false,
+        null),
+    new Group(
+        "Group1",
+        "description1",
+        "SELLER",
+        3.4,
+        "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
+        "1",
+        "1",
+        false,
+        null),
+    new Group(
+        "Group2",
+        "description2",
+        "PLACES",
+        4.0,
+        "https://miro.medium.com/max/4800/1*jFyawcsqoYctkTuZg6wQ1A.jpeg",
+        "1",
+        "1",
+        false,
+        null),
+    new Group(
+        "Group1",
+        "description1",
+        "SELLER",
+        3.4,
+        "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
+        "1",
+        "1",
+        false,
+        null),
+    new Group(
+        "Group2",
+        "description2",
+        "PLACES",
+        4.0,
+        "https://miro.medium.com/max/4800/1*jFyawcsqoYctkTuZg6wQ1A.jpeg",
+        "1",
+        "1",
+        false,
+        null),
+    new Group(
+        "Group1",
+        "description1",
+        "SELLER",
+        3.4,
+        "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
+        "1",
+        "1",
+        false,
+        null),
+    new Group(
+        "Group2",
+        "description2",
+        "PLACES",
+        4.0,
+        "https://miro.medium.com/max/4800/1*jFyawcsqoYctkTuZg6wQ1A.jpeg",
+        "1",
+        "1",
+        false,
+        null),
+  ];
+  return groups;
 }

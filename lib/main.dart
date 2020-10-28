@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -14,14 +15,34 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
   var loggedIn = false;
-  var firebaseAuth = FirebaseAuth.instance;
+
+  var firebaseAuth ;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    Firebase.initializeApp().whenComplete(() {
+      print("completed");
+      setState(() {
+        firebaseAuth = FirebaseAuth.instance;
+
+      });
+    });
+
+  }
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(home: _buildSocialLogin());
   }
+
+
+
 
   _buildSocialLogin() {
     return Scaffold(
@@ -135,10 +156,10 @@ class _MyAppState extends State<MyApp> {
         final accessToken = facebookLoginResult.accessToken.token;
         if (facebookLoginResult.status == FacebookLoginStatus.loggedIn) {
           final facebookAuthCred =
-          FacebookAuthProvider.getCredential(accessToken: accessToken);
+          FacebookAuthProvider.credential(accessToken);
           final user =
           await firebaseAuth.signInWithCredential(facebookAuthCred);
-          print("User : " + user.displayName);
+        //  print("User : " + user);
           return 1;
         } else
           return 0;
@@ -150,7 +171,7 @@ class _MyAppState extends State<MyApp> {
           final googleAuthCred = GoogleAuthProvider.getCredential(
               idToken: googleAuth.idToken, accessToken: googleAuth.accessToken);
           final user = await firebaseAuth.signInWithCredential(googleAuthCred);
-          print("User : " + user.displayName);
+        //  print("User : " + user.additionalUserInfo.username);
           return 1;
         } catch (error) {
           return 0;
@@ -162,7 +183,7 @@ class _MyAppState extends State<MyApp> {
   Future<FacebookLoginResult> _handleFBSignIn() async {
     FacebookLogin facebookLogin = FacebookLogin();
     FacebookLoginResult facebookLoginResult =
-    await facebookLogin.logInWithReadPermissions(['email']);
+    await facebookLogin.logIn(['email']);
     switch (facebookLoginResult.status) {
       case FacebookLoginStatus.cancelledByUser:
         print("Cancelled");

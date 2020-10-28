@@ -3,7 +3,7 @@ import 'dart:ffi';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:my_yutopia/activities_group.dart';
+import 'package:my_yutopia/places_group.dart';
 import 'package:my_yutopia/group.dart';
 import 'package:my_yutopia/seller_group.dart';
 
@@ -17,10 +17,10 @@ void GroupRouter(BuildContext context, Group group) {
         MaterialPageRoute(builder: (context) => SellerGroup(group)),
       );
       break;
-    case "ACTIVITIES":
+    case "PLACES":
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => ActivitiesGroup(group)),
+        MaterialPageRoute(builder: (context) => PlacesGroup(group)),
       );
       break;
   }

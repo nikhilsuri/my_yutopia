@@ -6,32 +6,17 @@ import 'package:my_yutopia/common_util.dart';
 import 'package:my_yutopia/review.dart';
 import 'package:my_yutopia/seller_group.dart';
 
-class Product extends StatefulWidget {
+class Place extends StatelessWidget {
   final String name;
   final String description;
   final ranking;
   final List<String> images;
   final String groupId;
-  final amount;
   final List<Review> reviews;
+  final String viewType;
 
-  @override
-  _Product createState() => _Product(
-      this.name, this.description, this.ranking, this.images, this.groupId,this.amount);
-
-  Product(this.name, this.description, this.ranking, this.images, this.groupId,this.amount,this.reviews);
-}
-
-class _Product extends State<Product> {
-  final String name;
-  final String description;
-  final ranking;
-  final List<String> images;
-  final String groupId;
-  final amount;
-
-  _Product(
-      this.name, this.description, this.ranking, this.images, this.groupId,this.amount);
+  Place(this.name, this.description, this.ranking, this.images, this.groupId,
+      this.reviews,this.viewType);
 
   TextStyle boldStyle = TextStyle(
     color: Colors.black,
@@ -64,14 +49,9 @@ class _Product extends State<Product> {
                   scale: 0.8,
                 ),
               ),
-
               Text(name),
               StarRatingBar(ranking),
-              Row(
-                children: <Widget>[
-                  Text("Rs " + amount.toString())
-                ],
-              )
+              Text("LOCATION LINK"),
             ],
           ),
         ));

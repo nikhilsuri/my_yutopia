@@ -73,7 +73,7 @@ class _SellerGroup extends State<SellerGroup> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            Cataloguge(group, products)));
+                                            Catalogue(group, products)));
                               },
                               child: Row(
                                 children: <Widget>[

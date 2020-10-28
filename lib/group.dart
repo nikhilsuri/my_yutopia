@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:my_yutopia/activities_group.dart';
+import 'package:my_yutopia/places_group.dart';
 import 'package:my_yutopia/seller_group.dart';
 import 'common_util.dart';
 

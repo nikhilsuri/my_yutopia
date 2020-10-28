@@ -5,22 +5,24 @@ import 'package:flutter/material.dart';
 import 'package:my_yutopia/cataloguge_screen.dart';
 import 'package:my_yutopia/common_util.dart';
 import 'package:my_yutopia/group.dart';
+import 'package:my_yutopia/place.dart';
 import 'package:my_yutopia/product.dart';
+import 'package:my_yutopia/places_list.dart';
 import 'package:my_yutopia/review.dart';
 
-class ActivitiesGroup extends StatefulWidget {
+class PlacesGroup extends StatefulWidget {
   final Group group;
 
-  ActivitiesGroup(this.group);
+  PlacesGroup(this.group);
 
   @override
-  _ActivitiesGroup createState() => _ActivitiesGroup(this.group);
+  _PlacesGroup createState() => _PlacesGroup(this.group);
 }
 
-class _ActivitiesGroup extends State<ActivitiesGroup> {
+class _PlacesGroup extends State<PlacesGroup> {
   final Group group;
 
-  List<Product> products;
+  List<Place> places;
 
   @override
   void initState() {
@@ -28,7 +30,7 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
     deserialiseMeta();
   }
 
-  _ActivitiesGroup(this.group);
+  _PlacesGroup(this.group);
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +67,7 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            Cataloguge(group, products)));
+                                            AllPlacesPage(group, places)));
                               },
                               child: Row(
                                 children: <Widget>[
@@ -81,12 +83,12 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
                             physics: ClampingScrollPhysics(),
                             shrinkWrap: true,
                             scrollDirection: Axis.horizontal,
-                            itemCount: products == null || products.isEmpty
+                            itemCount: places == null || places.isEmpty
                                 ? 0
-                                : min(5, products.length),
+                                : min(5, places.length),
                             itemBuilder: (context, index) {
                               return Container(
-                                child: Center(child: products[index]),
+                                child: Center(child: places[index]),
                               );
                             },
                           ),
@@ -138,7 +140,7 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
         ));
   }
 
-  List<Product> getDummyProducts() {
+  List<Place> getDummyPraces() {
     List<Review> reviews = [
       new Review("Nikhil", null,
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah "),
@@ -185,8 +187,8 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
       new Review("Nikhil", null,
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah "),
     ];
-    List<Product> products = [
-      new Product(
+    List<Place> products = [
+      new Place(
           "Product1",
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
@@ -195,9 +197,9 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999,
-          reviews),
-      new Product(
+          reviews,
+          "1"),
+      new Place(
           "Product1",
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
@@ -206,9 +208,9 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999,
-          reviews),
-      new Product(
+          reviews,
+          "1"),
+      new Place(
           "Product1",
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
@@ -217,9 +219,9 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999,
-          reviews),
-      new Product(
+          reviews,
+          "1"),
+      new Place(
           "Product1",
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
@@ -228,9 +230,9 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999,
-          reviews),
-      new Product(
+          reviews,
+          "1"),
+      new Place(
           "Product1",
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
@@ -239,9 +241,9 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999,
-          reviews),
-      new Product(
+          reviews,
+          "1"),
+      new Place(
           "Product1",
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
@@ -250,9 +252,9 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999,
-          reviews),
-      new Product(
+          reviews,
+          "1"),
+      new Place(
           "Product1",
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
@@ -261,9 +263,9 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999,
-          reviews),
-      new Product(
+          reviews,
+          "1"),
+      new Place(
           "Product1",
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
@@ -272,9 +274,9 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999,
-          reviews),
-      new Product(
+          reviews,
+          "1"),
+      new Place(
           "Product1",
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
@@ -283,9 +285,9 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999,
-          reviews),
-      new Product(
+          reviews,
+          "1"),
+      new Place(
           "Product1",
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
@@ -294,9 +296,9 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999,
-          reviews),
-      new Product(
+          reviews,
+          "1"),
+      new Place(
           "Product1",
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
@@ -305,9 +307,9 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999,
-          reviews),
-      new Product(
+          reviews,
+          "1"),
+      new Place(
           "Product1",
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
@@ -316,9 +318,9 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999,
-          reviews),
-      new Product(
+          reviews,
+          "1"),
+      new Place(
           "Product1",
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
@@ -327,9 +329,9 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999,
-          reviews),
-      new Product(
+          reviews,
+          "1"),
+      new Place(
           "Product1",
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
@@ -338,9 +340,9 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999,
-          reviews),
-      new Product(
+          reviews,
+          "1"),
+      new Place(
           "Product1",
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
@@ -349,9 +351,9 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999,
-          reviews),
-      new Product(
+          reviews,
+          "1"),
+      new Place(
           "Product1",
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
@@ -360,9 +362,9 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999,
-          reviews),
-      new Product(
+          reviews,
+          "1"),
+      new Place(
           "Product1",
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
@@ -371,9 +373,9 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999,
-          reviews),
-      new Product(
+          reviews,
+          "1"),
+      new Place(
           "Product1",
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
@@ -382,9 +384,9 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999,
-          reviews),
-      new Product(
+          reviews,
+          "1"),
+      new Place(
           "Product1",
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
@@ -393,9 +395,9 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999,
-          reviews),
-      new Product(
+          reviews,
+          "1"),
+      new Place(
           "Product1",
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
@@ -404,9 +406,9 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999,
-          reviews),
-      new Product(
+          reviews,
+          "1"),
+      new Place(
           "Product1",
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
@@ -415,9 +417,9 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999,
-          reviews),
-      new Product(
+          reviews,
+          "1"),
+      new Place(
           "Product1",
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
@@ -426,9 +428,9 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999,
-          reviews),
-      new Product(
+          reviews,
+          "1"),
+      new Place(
           "Product1",
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
@@ -437,9 +439,9 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999,
-          reviews),
-      new Product(
+          reviews,
+          "1"),
+      new Place(
           "Product1",
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
@@ -448,9 +450,9 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999,
-          reviews),
-      new Product(
+          reviews,
+          "1"),
+      new Place(
           "Product1",
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
@@ -459,9 +461,9 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999,
-          reviews),
-      new Product(
+          reviews,
+          "1"),
+      new Place(
           "Product1",
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
@@ -470,9 +472,9 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999,
-          reviews),
-      new Product(
+          reviews,
+          "1"),
+      new Place(
           "Product1",
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
@@ -481,9 +483,9 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999,
-          reviews),
-      new Product(
+          reviews,
+          "1"),
+      new Place(
           "Product1",
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
@@ -492,9 +494,9 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999,
-          reviews),
-      new Product(
+          reviews,
+          "1"),
+      new Place(
           "Product1",
           "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
           2.0,
@@ -503,167 +505,14 @@ class _ActivitiesGroup extends State<ActivitiesGroup> {
             "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
           ],
           "1",
-          999,
-          reviews),
-      new Product(
-          "Product1",
-          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
-          2.0,
-          [
-            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
-            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
-          ],
-          "1",
-          999,
-          reviews),
-      new Product(
-          "Product1",
-          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
-          2.0,
-          [
-            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
-            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
-          ],
-          "1",
-          999,
-          reviews),
-      new Product(
-          "Product1",
-          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
-          2.0,
-          [
-            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
-            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
-          ],
-          "1",
-          999,
-          reviews),
-      new Product(
-          "Product1",
-          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
-          2.0,
-          [
-            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
-            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
-          ],
-          "1",
-          999,
-          reviews),
-      new Product(
-          "Product1",
-          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
-          2.0,
-          [
-            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
-            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
-          ],
-          "1",
-          999,
-          reviews),
-      new Product(
-          "Product1",
-          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
-          2.0,
-          [
-            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
-            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
-          ],
-          "1",
-          999,
-          reviews),
-      new Product(
-          "Product1",
-          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
-          2.0,
-          [
-            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
-            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
-          ],
-          "1",
-          999,
-          reviews),
-      new Product(
-          "Product1",
-          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
-          2.0,
-          [
-            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
-            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
-          ],
-          "1",
-          999,
-          reviews),
-      new Product(
-          "Product1",
-          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
-          2.0,
-          [
-            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
-            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
-          ],
-          "1",
-          999,
-          reviews),
-      new Product(
-          "Product1",
-          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
-          2.0,
-          [
-            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
-            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
-          ],
-          "1",
-          999,
-          reviews),
-      new Product(
-          "Product1",
-          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
-          2.0,
-          [
-            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
-            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
-          ],
-          "1",
-          999,
-          reviews),
-      new Product(
-          "Product1",
-          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
-          2.0,
-          [
-            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
-            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
-          ],
-          "1",
-          999,
-          reviews),
-      new Product(
-          "Product1",
-          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
-          2.0,
-          [
-            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
-            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
-          ],
-          "1",
-          999,
-          reviews),
-      new Product(
-          "Product1",
-          "Hi , blah blah blah. blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah . blah blah blah blah blah ",
-          2.0,
-          [
-            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg",
-            "https://c4.wallpaperflare.com/wallpaper/122/807/700/planetary-ring-ringed-planet-planet-stars-wallpaper-preview.jpg"
-          ],
-          "1",
-          999,
-          reviews),
+          reviews,
+          "1"),
+
     ];
     return products;
   }
 
   void deserialiseMeta() {
-    products = getDummyProducts();
+    places = getDummyPraces();
   }
 }
