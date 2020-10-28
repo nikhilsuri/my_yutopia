@@ -117,25 +117,29 @@ class _PlacesGroup extends State<PlacesGroup> {
               ),
             ),
             Positioned(
-              left: 20,
+              left: 10,
               bottom: 20,
               child: FloatingActionButton.extended(
                 onPressed: () {},
+                elevation: 20,
+                heroTag: "post",
                 label: Text('ADD POST'),
                 icon: Icon(Icons.add),
                 backgroundColor: Colors.pink,
               ),
             ),
-//            Positioned(
-//              left: 20,
-//              bottom: 40,
-//              child: FloatingActionButton.extended(
-//                onPressed: () {},
-//                label: Text('ADD REVIEW'),
-//                icon: Icon(Icons.add),
-//                backgroundColor: Colors.pink,
-//              ),
-//            ),
+            Positioned(
+              left: 10,
+              bottom: 80,
+              child: FloatingActionButton.extended(
+                onPressed: () {},
+                elevation: 20,
+                heroTag: "review",
+                label: Text('ADD REVIEW'),
+                icon: Icon(Icons.add),
+                backgroundColor: Colors.pink,
+              ),
+            ),
           ],
         ));
   }
